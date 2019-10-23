@@ -13,6 +13,11 @@
   font-family: "AvenirNextBold";
 }
 
+@font-face {
+  src: url("../assets/fonts/Modak-Regular.ttf");
+  font-family: "Modak";
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,24 +66,22 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 50vw;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
   font-size: 14px;
   line-height: 22px;
-  color: #afafaf;
+  color: #ffffff;
   border-top: 5px solid #323232;
   border-bottom: 5px solid #323232;
 }
 
 .header__list-item-text {
-  font-size: 14px;
-  line-height: 22px;
+  font-family: "Modak";
+  font-size: 64px;
+  line-height: 64px;
   font-weight: normal;
-  font-family: "AvenirNextRegular";
-  font-weight: bold;
 }
 
 .header__list-item--active {
@@ -106,14 +109,15 @@
   }
   .header__list {
     height: 100%;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .header__list-item {
-    font-family: "AvenirNextBold";
-    font-size: 24px;
-    line-height: 32px;
+    font-family: "Modak";
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: normal;
     width: 80px;
     margin-right: 56px;
   }
@@ -130,19 +134,11 @@
   height: 183px;
 }
 
-.hero--shows {
-  height: 472px;
-}
-
 .hero__image {
   position: absolute;
   width: 100%;
   height: 183px;
   z-index: 0;
-}
-
-.hero__image--shows {
-  height: 472px;
 }
 
 .hero__overlay {
@@ -153,11 +149,7 @@
   z-index: 1;
 }
 
-.hero__overlay--shows {
-  height: 472px;
-}
-
-.hero__text {
+.hero__searchbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -174,10 +166,6 @@
   z-index: 2;
 }
 
-.hero__text--shows {
-  top: 64px;
-}
-
 .hero__subtitle {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -191,43 +179,24 @@
 }
 
 .hero__title {
-  font-family: "AvenirNextBold";
+  font-family: "Modak";
   font-size: 24px;
   line-height: 32px;
   color: #ffffff;
-}
-
-.hero__title--shows {
-  width: 288px;
-  font-size: 36px;
-  line-height: 44px;
-  margin-bottom: 64px;
 }
 
 @media only screen and (min-width: 768px) {
   .hero {
     height: 400px;
   }
-  .hero--shows {
-    height: 670px;
-  }
   .hero__image {
     height: 400px;
-  }
-  .hero__image--shows {
-    height: 670px;
   }
   .hero__overlay {
     height: 400px;
   }
-  .hero__overlay--shows {
-    height: 670px;
-  }
-  .hero__text {
+  .hero__searchbox {
     margin-left: 24px;
-  }
-  .hero__text--shows {
-    top: 15%;
   }
   .hero__subtitle {
     font-family: "AvenirNextBold";
@@ -236,12 +205,10 @@
     margin-bottom: 32px;
   }
   .hero__title {
-    font-family: "AvenirNextBold";
-    font-size: 60px;
+    font-family: "Modak";
+    font-size: 100px;
     line-height: 68px;
-  }
-  .hero__title--shows {
-    width: 560px;
+    font-weight: normal;
   }
   .hero__soundcloud {
     display: -webkit-box;
@@ -259,36 +226,21 @@
   .hero {
     height: 670px;
   }
-  .hero--shows {
-    height: 670px;
-  }
   .hero__image {
-    height: 670px;
-  }
-  .hero__image--shows {
     height: 670px;
   }
   .hero__overlay {
     height: 670px;
   }
-  .hero__overlay--shows {
-    height: 670px;
-  }
-  .hero__text {
+  .hero__searchbox {
     margin-left: 180px;
     top: 35%;
   }
-  .hero__text--shows {
-    top: 160px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
   .hero__title {
-    font-family: "AvenirNextBold";
-    font-size: 60px;
+    font-family: "Modak";
+    font-size: 100px;
     line-height: 68px;
+    font-weight: normal;
     margin-bottom: 0;
   }
   .hero__soundcloud {

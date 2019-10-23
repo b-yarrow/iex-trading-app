@@ -1,12 +1,16 @@
 @mixin desk__hero-header {
-    font-family: "AvenirNextBold";
-    font-size: 60px;
+    font-family: "Modak";
+    font-size: 100px;
     line-height: 68px;
+    // color: blue;
+    font-weight: normal;
 }
 
 @mixin desk__h1 {
-    font-size: 36px;
-    line-height: 44px;
+    font-family: "Modak";
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: normal;
 }
 
 @mixin desk__h2 {
