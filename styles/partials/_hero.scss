@@ -1,0 +1,174 @@
+.hero {
+  position: relative;
+  $hero-height: 183px;
+  $hero-height--shows: 472px;
+  height: $hero-height;
+
+  &--shows {
+    height: $hero-height--shows;
+  }
+  
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: $hero-height;
+    z-index: 0;
+    &--shows {
+      height: $hero-height--shows;
+    }
+  
+  }
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: $hero-height;
+    background-color: rgba(23, 23, 23, 0.5);
+
+    z-index: 1;
+    &--shows {
+      height: $hero-height--shows;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    top: 33%;
+    margin-left: 16px;
+    z-index: 2;
+
+    &--shows {
+      top: 64px;
+    }
+  }
+
+  &__subtitle {
+    display: flex;
+    align-self: flex-start;
+    font-family: "AvenirNextBold";
+    @include mob__h2;
+    color: $white;
+  }
+
+  &__title {
+    font-family: "AvenirNextBold";
+    font-size: 24px;
+    line-height: 32px;
+    color: $white;
+
+    &--shows {
+      width:  288px;
+      font-size: 36px;
+      line-height: 44px;
+      margin-bottom: 64px;
+    }
+  }
+}
+
+@include tablet {
+  .hero {
+    $hero-height: 400px;
+    height: $hero-height;
+    $hero-height--shows: 670px;
+
+    &--shows {
+        height: $hero-height--shows;
+      }
+
+
+    &__image {
+      height: $hero-height;
+      &--shows {
+        height: $hero-height--shows;
+      }
+    }
+
+    &__overlay {
+      height: $hero-height;
+      &--shows {
+        height: $hero-height--shows;
+      }
+    }
+
+    &__text {
+      margin-left: 24px;
+      &--shows {
+        top: 15%;
+      }
+    }
+
+    &__subtitle {
+      @include desk__h2;
+      margin-bottom: 32px;
+    }
+
+    &__title {
+      @include desk__hero-header;
+      &--shows {
+        width: 560px;
+      }
+    }
+
+    &__soundcloud {
+      display: flex;
+      align-self: flex-start;
+      height: 120px;
+      width: 440px;
+      left: 24px;
+    }
+  }
+}
+
+@include desktop {
+  .hero {
+    $hero-height: 670px;
+    $hero-height--shows: 670px;
+
+    height: $hero-height;
+    &--shows {
+      height: $hero-height--shows;
+    }
+
+    &__image {
+      height: $hero-height;
+      &--shows {
+        height: $hero-height--shows;
+      }
+    }
+
+    &__overlay {
+      height: $hero-height;
+      &--shows {
+        height: $hero-height--shows;
+      }
+    }
+
+    &__text {
+      margin-left: 180px;
+      top: 35%;
+
+      &--shows {
+        top: 160px;
+        flex-direction: row;
+      }
+    }
+
+    &__title {
+      @include desk__hero-header;
+      margin-bottom: 0;
+    }
+
+    &__soundcloud {
+      width: 436px;
+      height: 146px;
+      margin-left: 64px;
+      margin-bottom: 18px;
+      align-self: flex-end;
+    }
+
+  }
+}
