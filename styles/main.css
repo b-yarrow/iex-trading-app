@@ -34,7 +34,9 @@
           align-items: center;
   width: 100%;
   height: 80px;
-  background-color: #323232;
+  background-color: #57e780;
+  position: fixed;
+  z-index: 1;
 }
 
 .header__logo {
@@ -70,11 +72,7 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  font-size: 14px;
-  line-height: 22px;
   color: #ffffff;
-  border-top: 5px solid #323232;
-  border-bottom: 5px solid #323232;
 }
 
 .header__list-item-text {
@@ -118,8 +116,8 @@
     font-size: 64px;
     line-height: 64px;
     font-weight: normal;
-    width: 80px;
-    margin-right: 56px;
+    width: 100%;
+    margin-top: 12px;
   }
 }
 
@@ -131,22 +129,19 @@
 
 .hero {
   position: relative;
-  height: 183px;
 }
 
 .hero__image {
   position: absolute;
   width: 100%;
-  height: 183px;
-  z-index: 0;
+  z-index: -2;
 }
 
 .hero__overlay {
   position: absolute;
   width: 100%;
-  height: 183px;
   background-color: rgba(23, 23, 23, 0.5);
-  z-index: 1;
+  z-index: -1;
 }
 
 .hero__searchbox {
@@ -157,47 +152,20 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: absolute;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  top: 33%;
-  margin-left: 16px;
-  z-index: 2;
+  z-index: 0;
 }
 
-.hero__subtitle {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  font-family: "AvenirNextBold";
-  font-size: 14px;
-  line-height: 22px;
-  color: #ffffff;
-}
-
-.hero__title {
-  font-family: "Modak";
-  font-size: 24px;
-  line-height: 32px;
-  color: #ffffff;
+.hero__search-input {
+  margin: 20px auto;
+  border-radius: 5px;
+  font-size: 32px;
+  padding-left: 10px;
 }
 
 @media only screen and (min-width: 768px) {
-  .hero {
-    height: 400px;
-  }
-  .hero__image {
-    height: 400px;
-  }
-  .hero__overlay {
-    height: 400px;
-  }
-  .hero__searchbox {
-    margin-left: 24px;
-  }
   .hero__subtitle {
     font-family: "AvenirNextBold";
     font-size: 24px;
@@ -223,19 +191,6 @@
 }
 
 @media only screen and (min-width: 1440px) {
-  .hero {
-    height: 670px;
-  }
-  .hero__image {
-    height: 670px;
-  }
-  .hero__overlay {
-    height: 670px;
-  }
-  .hero__searchbox {
-    margin-left: 180px;
-    top: 35%;
-  }
   .hero__title {
     font-family: "Modak";
     font-size: 100px;
@@ -253,14 +208,101 @@
   }
 }
 
+.card-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: auto;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: space-around;
+      -ms-flex-align: space-around;
+          align-items: space-around;
+  margin-bottom: 10px;
+}
+
+.card {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  margin: 10px auto;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  width: 250px;
+  z-index: 0;
+}
+
+.card__title {
+  display: block;
+  border-bottom: 2px solid black;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.card__background, .card__background--blank {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  width: 250px;
+}
+
+.card__background--blank {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 15px;
+  background-color: white;
+  opacity: 0.99;
+}
+
+.card__text {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.card__list {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+}
+
+.card__list-item {
+  background-color: #f0f0f0;
+  font-size: 1.1rem;
+  margin: 20px 0;
+  padding: 15px 0;
+}
+
 .footer {
   padding: 48px 5vw;
-  background-color: #323232;
+  background-color: #57e780;
   color: #ffffff;
   font-family: "AvenirNextRegular";
   font-weight: 100;
   font-size: 0.76rem;
   line-height: 1.14rem;
+  position: fixed;
+  height: 80px;
+  bottom: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .footer__first-row {
@@ -360,6 +402,10 @@
 
 @media only screen and (min-width: 768px) {
   .footer {
+    position: fixed;
+    height: 80px;
+    bottom: 0;
+    width: 100%;
     padding: 48px 3.125vw;
     font-size: 14px;
     line-height: 20px;
@@ -426,8 +472,10 @@
 
 @media only screen and (min-width: 1440px) {
   .footer {
-    position: relative;
-    padding: 48px 12.5vw;
+    position: fixed;
+    height: 80px;
+    bottom: 0;
+    width: 100%;
   }
   .footer__title {
     width: 252px;
@@ -453,6 +501,8 @@ html, body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #323232;
+  height: 100%;
+  width: 100%;
 }
 
 *, *:before, *:after {
@@ -467,5 +517,50 @@ h1, h2, h3, h4, h5, p {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+.bg::before {
+  /* The image used */
+  background-image: url("../assets/images/hero.jpg");
+  background-size: cover;
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Full height */
+  width: 100%;
+  height: 100%;
+  /* Center and scale the image nicely */
+  z-index: -2;
+}
+
+.bg::after {
+  background-color: rgba(23, 23, 23, 0.5);
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+#top-spacer {
+  height: 80px;
+}
+
+.link {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=main.css.map */

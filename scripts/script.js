@@ -7,121 +7,120 @@ function commentObj(name, comment, id, likes, timestamp) {
     this.timestamp = timestamp;
 }
 
-//Array of comments, will be populated with api server data
-commentAry = [];
+//Array of the IEX data
+iexArray = [];
+iexArrayFiltered = [];
 
 /**
  * displayComment builds a new comment block, creates all needed html element, assigns classes
  * and appends them together.
  * @param {*} entry - a comment object
  */
-function displayComment(entry) {
+function displayCompany(entry) {
     //create comment structure
-    var head = document.getElementsByClassName('conversation__post-container')[0];
-    var newPost = document.createElement('div');
-    var imgBox = document.createElement('div');
-    var img = document.createElement('img');
-    var textBox = document.createElement('div');
-    var header = document.createElement('header');
-    var name = document.createElement('h2');
-    var date = document.createElement('h5');
-    var comment = document.createElement('p');
+    var head = document.getElementsByClassName('card-box')[0];
+    var card = document.createElement('card');
+    var companySymbol = document.createElement('span');
+    var companyProperties = document.createElement('ul');
+    var companyName = document.createElement('li');
+    var companyDate = document.createElement('li');
+    // var name = document.createElement('h2');
+    // var date = document.createElement('h5');
+    // var comment = document.createElement('p');
 
 
     //assign classes
-    newPost.setAttribute('class', 'conversation__post');
-    imgBox.setAttribute('class', 'conversation__image-box');
-    img.setAttribute('class', 'conversation__image');
-    // img.setAttribute('src', './assets/images/' + entry.avatar);
-    img.setAttribute('src', './assets/images/blank.jpg');
-    textBox.setAttribute('class', 'conversation__text-box');
-    header.setAttribute('class', 'conversation__header');
-    name.setAttribute('class', 'conversation__name');
-    date.setAttribute('class', 'conversation__date');
-    comment.setAttribute('class', 'conversation__comment');
+    card.setAttribute('class', 'card card__background--blank');
+    companySymbol.setAttribute('class', 'card__title');
+    companyProperties.setAttribute('class', 'card__list');
+    companyName.setAttribute('class', 'card__list-item');
+    companyDate.setAttribute('class', 'card__list-item');
+    // header.setAttribute('class', 'card__header');
+    // name.setAttribute('class', 'conversation__name');
+    // date.setAttribute('class', 'conversation__date');
+    // comment.setAttribute('class', 'conversation__comment');
 
     //add content
-    name.innerHTML = entry.name;
-    date.innerHTML = dayFormat(entry.timestamp);
-    comment.innerHTML = entry.comment;
+    companyName.innerHTML = entry.name || "no company name";
+    companySymbol.innerHTML = entry.symbol;
+    companyDate.innerHTML = entry.date;
 
 
     //append together
-    imgBox.appendChild(img);
-    newPost.appendChild(imgBox);
+    companyProperties.appendChild(companyName);
+    companyProperties.appendChild(companyDate);
 
-    header.appendChild(name);
-    header.appendChild(date);
+    card.appendChild(companySymbol);
+    card.appendChild(companyProperties);
 
-    textBox.appendChild(header);
-    textBox.appendChild(comment);
-
-    newPost.appendChild(textBox);
-
-    head.appendChild(newPost);
+    head.appendChild(card);
 }
 
-/**
- * form event listener, gets data from forms, adds new entry to comment array, deletes the 
- * html comments from the page, then rebuilds the entire list of comments.  Finally clears
- * the form fields
- */
-const form = document.getElementById('commentForm');
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let userName = e.target.commentName.value;
-    // let userImage = document.getElementsByClassName('conversation__image--create')[0].getAttribute('src');
-    // let imgStr = userImage.slice(userImage.lastIndexOf('/') + 1, userImage.length);
-    let commentText = e.target.commentText.value;
-    // let postComment = new commentObj(userName, commentText, apiKey, 0, new Date().getTime());
+function compareSymbols(a, b) {
+    const symbolA = a.symbol;
+    const symbolB = b.symbol
 
-    axios.post('https://project-1-api.herokuapp.com/comments' + apiString, { name: userName, comment: commentText })
-        .then(response => {
-
-
-            commentAry.push(response.data);
-
-            flushComments();
-            buildComments();
-
-            e.target.commentName.value = '';
-            e.target.commentText.value = '';
-
-        });
-
-});
-
-
-/**
- * Builds the stored comments posted in the comments array
- */
-function buildComments() {
-
-    for (let i = 0; i < commentAry.length; i++) {
-        displayComment(commentAry[i]);
+    let comparison = 0;
+    if (symbolA > symbolB) {
+        comparison = 1;
+    } else if (symbolA < symbolB) {
+        comparison = -1;
     }
+    return comparison;
 }
+var companies;
+var symbolList = [];
+var compList = [];
 
-//clears all comments from the page
-function flushComments() {
-    let postContainer = document.getElementsByClassName('conversation__post-container')[0];
-    let list = document.getElementsByClassName('conversation__post-container')[0].childNodes;
-    for (let i = list.length - 1; i >= 0; i--) {
-        if (list[i].nodeType !== 3) {
-            postContainer.removeChild(list[i]);
-        }
-    }
-}
-
-
+// companies = document.getElementById("1234").children.;
 
 // Builds comments on initial page load
-axios.get('https://project-1-api.herokuapp.com/comments' + apiString).then(response => {
-    commentAry = response.data;
+axios.get('https://api.iextrading.com/1.0/ref-data/symbols').then(response => {
+    iexArray = response.data;
+    let rand;
 
-    for (let i = 0; i < commentAry.length; i++) {
-        displayComment(commentAry[i]);
+    for (let i = 0; i < 100; i++) {
+        rand = Math.floor((Math.random() * (iexArray.length - 1)) + 1);
+        console.log(rand);
+        iexArrayFiltered.push(iexArray.splice(rand, 1)[0]);
     }
+    iexArrayFiltered.sort(compareSymbols);
+
+    for (let i = 0; i < iexArrayFiltered.length; i++) {
+        displayCompany(iexArrayFiltered[i]);
+    }
+    companies = document.getElementsByClassName('card card__background--blank');
+    for (var i = 0; i < companies.length; i++) {
+        var sym = companies[i].firstChild.innerHTML;
+        symbolList.push(sym);
+    }
+
+    for (var i = 0; i < companies.length; i++) {
+        var comp = companies[i].lastChild.firstChild.innerHTML;
+        compList.push(comp);
+    }
+});
+
+var searchBar = document.getElementById('search-bar');
+searchBar.addEventListener('keyup', function (event) {
+    var text = searchBar.value;
+
+    // for (var i = 0; i < companies.length; i++) {
+    //     if (symbolList[i].indexOf(text) < 0) {
+    //         companies[i].style.display = 'None';
+    //     } else {
+    //         companies[i].style.display = 'Block';
+    //     }
+    // }
+
+    for (var i = 0; i < companies.length; i++) {
+        if (compList[i].indexOf(text) < 0) {
+            companies[i].style.display = 'None';
+        } else {
+            companies[i].style.display = 'Block';
+        }
+    }
+
 });
 
 

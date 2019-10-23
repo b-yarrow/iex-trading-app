@@ -10,98 +10,93 @@
 </head>
 
 <body>
-  <header class="header">
-    <a href="index.html">
+  <div class="bg">
+    <div class="hero__overlay"></div>
+    <header class="header">
+      <a href="index.html">
 
-      <!-- <img class="header__logo" src="./assets/images/logos/logo-bandsite.png" alt="Bandsite Logo" /> -->
-    </a>
-    <nav class="header__list">
-      <div class="header__list-item">
-        <a href="index.html">
-          <h1 class="header__list-item-text">
-            DollaBills
-          </h1>
-        </a>
+        <!-- <img class="header__logo" src="./assets/images/logos/logo-bandsite.png" alt="Bandsite Logo" /> -->
+      </a>
+      <nav class="header__list">
+        <div class="header__list-item">
+          <a href="index.html">
+            <h1 class="header__list-item-text">
+              DollaBills
+            </h1>
+          </a>
+        </div>
+
+      </nav>
+    </header>
+    <div id="top-spacer"></div>
+
+    <section class="hero">
+      <!-- 
+      <img class="hero__image" src="./assets/images/hero.jpg" alt="Hero Image" /> -->
+
+      <div class="hero__searchbox">
+        <div>
+          <input id="search-bar" class="hero__search-input" type="text" name="commentName" id="fname"
+            placeholder="Make Your Money">
+        </div>
+        <div class="card-box">
+
+
+
+          <!-- <card class="card card__background--blank">
+            <span class="card__title">Friday</span>
+            <ul class="card__list">
+              <li class="card__list-item">Breakfast</li>
+              <li class="card__list-item">Lunch</li>
+              <li class="card__list-item">Snorkeling</li>
+              <li class="card__list-item">Dinner</li>
+            </ul>
+          </card> -->
+        </div>
       </div>
 
-    </nav>
-  </header>
+    </section>
 
-  <section class="hero">
-    <div class="hero__overlay"></div>
-    <img class="hero__image" src="./assets/images/hero.jpg" alt="Hero Image" />
+    <div id="top-spacer"></div>
+    <footer class="footer">
+      <!-- <div class="footer__logo">
+        <img src="./assets/images/logos/logo-bandsite.png" alt="BandSite Logo" />
+      </div>
+      <div class="footer__first-row">
+        <h1 class="footer__title">Get In Touch</h1>
+        <div class="footer__icon-group">
+          <img class="footer__icon" src="./assets/images/icons/SVG/icon-instagram.svg" alt="Instagram Icon" />
+          <img class="footer__icon" src="./assets/images/icons/SVG/icon-facebook.svg" alt="Facebook Icon" />
+          <img class="footer__icon" src="./assets/images/icons/SVG/icon-twitter.svg" alt="Twitter Icon" />
+        </div>
+      </div> -->
 
-    <div class="hero__searchbox">
 
-      <input class="hero__search-input" type="text" name="commentName" id="fname" placeholder="Make Your Money">
+      <p class="footer__copyright">
+        <span class="footer__copyright--text">
+          Copyright Super & Duper LLC &copy; 2019&nbsp;
+        </span>
+        <span class="footer__copyright--text">
+          All Rights Reserved
+        </span>
+      </p>
 
-    </div>
-  </section>
-
-
-  <footer class="footer">
-    <div class="footer__logo">
-      <img src="./assets/images/logos/logo-bandsite.png" alt="BandSite Logo" />
-    </div>
-    <div class="footer__first-row">
-      <h1 class="footer__title">Get In Touch</h1>
       <div class="footer__icon-group">
         <img class="footer__icon" src="./assets/images/icons/SVG/icon-instagram.svg" alt="Instagram Icon" />
         <img class="footer__icon" src="./assets/images/icons/SVG/icon-facebook.svg" alt="Facebook Icon" />
         <img class="footer__icon" src="./assets/images/icons/SVG/icon-twitter.svg" alt="Twitter Icon" />
       </div>
-    </div>
-    <div class="footer__second-row">
-      <div class="footer__contact">
-        <div class="footer__name">
-          <span>Richard Rovner</span>
-          <span>The Bees Knees Management</span>
-        </div>
-        <div class="footer__address">
-          <span>460 King Street West</span>
-          <span>Toronto, Ontario M5V 1L7</span>
-        </div>
-        <div class="footer__email">
-          info@thebeesknees.com
-        </div>
-      </div>
-      <div class="footer__contact">
-        <div class="footer__name">
-          <span>Marsha Vlasic</span>
-          <span>Artist Group International</span>
-        </div>
-        <div class="footer__address">
-          <span>Booking Agent for</span>
-          <span>US / South America / Japan</span>
-        </div>
-        <div class="footer__email">
-          marsha.vlasic@artistgrp.com
-        </div>
-      </div>
-      <div class="footer__contact">
-        <div class="footer__name">
-          <span>Russel Warby</span>
-          <span>William Morrir Entertainment</span>
-        </div>
-        <div class="footer__address">
-          <span>Booking Agent for</span>
-          <span>UK / EU / AU</span>
-        </div>
-        <div class="footer__email">
-          RLW@wmeentertainment.co
-        </div>
-      </div>
-    </div>
 
-    <p class="footer__copyright">
-      <span class="footer__copyright--text">
-        Copyright The Bees Knees &copy; 2018&nbsp;
-      </span>
-      <span class="footer__copyright--text">
-        All Rights Reserved
-      </span>
-    </p>
-  </footer>
+      <p class="footer__copyright">
+        <span class="footer__copyright--text">
+          Data provided for free by <a class="link" href="https://iextrading.com/developer">IEX</a>.&nbsp;
+        </span>
+        <span class="footer__copyright--text">
+          View IEX’s <a class="link" href="https://iextrading.com/api-exhibit-a/">Terms of Use</a>.
+        </span>
+      </p>
+    </footer>
+  </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./scripts/api.js"></script>
   <script src="./scripts/dayFormat.js"></script>
