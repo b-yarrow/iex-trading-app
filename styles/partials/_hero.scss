@@ -1,0 +1,120 @@
+.hero {
+  position: relative;
+  $hero-height: 183px;
+  // height: $hero-height;
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    // height: $hero-height;
+    z-index: -2;
+  
+  }
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    // height: $hero-height;
+    background-color: rgba(23, 23, 23, 0.5);
+
+    z-index: -1;
+
+  }
+
+  &__searchbox {
+    display: flex;
+    flex-direction: column;
+    // position: absolute;
+    align-items: center;
+    // top: 33%;
+    // margin-left: 16px;
+    z-index: 0;
+    // background-color: $moneygreen;
+
+  }
+
+  &__search-input {
+    margin: 20px auto;
+    border-radius: 5px;
+    font-size: 32px;
+    padding-left: 10px;
+  }
+}
+
+@include tablet {
+  .hero {
+    $hero-height: 400px;
+    // height: $hero-height;
+
+
+
+
+    &__image {
+      // height: $hero-height;
+    }
+
+    &__overlay {
+      // height: $hero-height;
+    }
+
+    &__searchbox {
+      // margin-left: 24px;
+    }
+
+    &__subtitle {
+      @include desk__h2;
+      margin-bottom: 32px;
+    }
+
+    &__title {
+      @include desk__hero-header;
+    }
+
+    &__soundcloud {
+      display: flex;
+      align-self: flex-start;
+      height: 120px;
+      width: 440px;
+      left: 24px;
+    }
+  }
+}
+
+@include desktop {
+  .hero {
+    $hero-height: 670px;
+
+
+    // height: $hero-height;
+
+
+    &__image {
+      // height: $hero-height;
+
+    }
+
+    &__overlay {
+      // height: $hero-height;
+
+    }
+
+    &__searchbox {
+      // margin-left: 180px;
+      // top: 35%;
+    }
+
+    &__title {
+      @include desk__hero-header;
+      margin-bottom: 0;
+    }
+
+    &__soundcloud {
+      width: 436px;
+      height: 146px;
+      margin-left: 64px;
+      margin-bottom: 18px;
+      align-self: flex-end;
+    }
+
+  }
+}
