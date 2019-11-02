@@ -103,7 +103,7 @@ axios.get('https://api.iextrading.com/1.0/ref-data/symbols').then(response => {
 
 var searchBar = document.getElementById('search-bar');
 searchBar.addEventListener('keyup', function (event) {
-    var text = searchBar.value;
+    var text = searchBar.value.toUpperCase();
 
     // for (var i = 0; i < companies.length; i++) {
     //     if (symbolList[i].indexOf(text) < 0) {
