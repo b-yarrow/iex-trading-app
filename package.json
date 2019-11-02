@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/b-yarrow/iex-trading-app/issues"
   },
-  "homepage": "https://github.com/b-yarrow/iex-trading-app#readme",
+  "homepage": "https://github.com/b-yarrow/iex-trading-app",
   "dependencies": {
     "gh-pages": "^2.1.1"
   }
